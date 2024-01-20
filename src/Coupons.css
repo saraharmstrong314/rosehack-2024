@@ -1,4 +1,26 @@
-
-.para{
-    font-size: 240px;
-}
+.container {
+    text-align: center;
+    margin: 50px;
+  }
+  
+  h1 {
+    color: #fff;
+  }
+  
+  p {
+    color: #fff;
+  }
+  
+  a {
+    display: block;
+    margin: 10px 0;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

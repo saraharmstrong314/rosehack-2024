@@ -6,7 +6,13 @@ import Coupons from './Coupons';
 
 function App() {
   return (
-    <Coupons></Coupons>
+    <Router>
+      <Routes>
+        <Route path="/signup" element={<Signup/>} />
+        <Route exact path="/" element={<Login/>} />
+        <Route path="/coupon" element={<Coupons/>} />
+      </Routes>
+    </Router>
   );
 }
 

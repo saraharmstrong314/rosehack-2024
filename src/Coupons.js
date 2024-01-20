@@ -1,5 +1,5 @@
-import React from 'react'
-import "./Coupons.css"
+import React from 'react';
+import "./Coupons.css";
 function Coupons() {
   return (
     <div className='container'>
