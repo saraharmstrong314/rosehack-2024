@@ -1,43 +1,13 @@
-// GraphSection.js
+// InflationGraph.js
 
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { Line } from 'react-chartjs-2';
 
-const GraphSection = ({ section }) => {
-  const [graphData, setGraphData] = useState({});
-
-  useEffect(() => {
-    // axios.get('')
-    //   .then(response => {
-    //     const data = response.data; 
-    //     const years = data.map(item => item.year);
-    //     const inflationRates = data.map(item => item.inflationRate);
-    //     const chartData = {
-    //       labels: years,
-    //       datasets: [
-    //         {
-    //           label: 'Inflation Rate',
-    //           data: inflationRates,
-    //           fill: false,
-    //           borderColor: 'rgba(75,192,192,1)',
-    //         },
-    //       ],
-    //     };
-
-    //     setGraphData(chartData);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error fetching data:', error);
-    //   });
-  }, []);
+const GraphSection = () => {
 
   return (
     <div>
-      <h4>Graph Section {section}</h4>
-      {/* <div style={{ height: '300px', width: '100%' }}>
-        <Line data={graphData} />
-      </div> */}
+      <img src='https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fd7aa848c-955b-4749-9297-7e80156b1a3e_1600x1200.png'></img>
     </div>
   );
 };
