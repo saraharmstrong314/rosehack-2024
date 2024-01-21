@@ -4,17 +4,18 @@ import Login from './Login';
 import Signup from './Signup';
 import Coupons from './Coupons';
 import Nanami from './Nanami';
+import Trends from './Trends';
 
 function App() {
   return (
-    <Coupons></Coupons>
-    // <Router>
-    //   <Routes>
-    //     <Route path="/signup" element={<Signup/>} />
-    //     <Route exact path="/" element={<Login/>} />
-    //     <Route path="/nanami/:username" element={<Nanami/>} />
-    //   </Routes>
-    // </Router>
+    <Router>
+      <Routes>
+        <Route path="/signup" element={<Signup/>} />
+        <Route exact path="/" element={<Login/>} />
+        <Route path="/nanami/:username" element={<Nanami/>} />
+        <Route path="/trends/:username" element={<Trends/>} />
+      </Routes>
+    </Router>
   );
 }
 
