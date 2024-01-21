@@ -24,7 +24,7 @@
 }
 
 h1 {
-  color: #333;
+  color:#efeaf0;
   width: 100%;
 }
 
@@ -52,9 +52,12 @@ img {
   height: 200px; /* Initially hide the images */
 }
 p{
-  color: #fff;
+  color:#ffffff;
 }
-
+.my-btn {
+  background-color:#d0eac9 ;
+  border-color: #5e0075;
+}
 /* Adjustments for responsive design */
 @media (max-width: 600px) {
   img {
