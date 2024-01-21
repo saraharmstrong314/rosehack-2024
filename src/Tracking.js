@@ -38,6 +38,12 @@ function Tracking() {
             name:item,
             cost:cost,
         })
+
+        const docref1 = await db.collection('users').doc(id);
+        const docSnap = await docref1.get();
+        const oldTotExpense = docSnap.get('totalExpenses');
+
+        docref1.update({totalExpense : oldTotExpense + cost});
         
         console.log("we here???");
         setPopupOpen(!isPopupOpen);
@@ -46,6 +52,16 @@ function Tracking() {
         updateItem('');
         updateCost('');
         setCostState(false);
+
+        let l = [];
+        for (let i=0; i < prices.length; i++) {
+            l.push([example[i], prices[i]]);
+        }
+
+        setCombined(l);
+
+        update();
+
     }
 
     const removeItems = async() => { 
@@ -81,28 +97,73 @@ function Tracking() {
         updateItem('');
         updateCost('');
         setCostState(false);
+
+
+        let tmp1 = [];
+        for (let i=0; i < combined.length;i++) {
+            if (combined[i][0] == item) {
+                const l = 0; //we ain't doing shit
+            } else {
+                tmp1.push(combined[i]);
+            }
+        }
+
+        setCombined(tmp1);
     }
 
 
-    
+    const [example, setExample] = useState([]);
+    const [prices, setPrices] = useState([]);
+
+    const [combined, setCombined] = useState([]);
 
     const update = async () => {
-        const d = await db.collection('users').where('username', '==', username).get();
-        const id = d.docs[0].id;  
-
-        const ourIDS = await (await db.collection('users').doc(id).collection('expenses').where('name', '==', item).get()).docs;
-
-        for (const ourID of ourIDS) {
-            // console.log(deleteID.id);
-            await db.collection('users').doc(id).collection('expenses').doc(ourID.id);
+        setCombined([]);
         
+
+        console.log("\n\n\n\n\n\nStart of update!!!!");
+        const d = await db.collection('users').where('username', '==', username).get();
+        
+        const id = d.docs[0].id;
+
+        console.log(id);
+
+        const ourIDS = await db.collection('users').doc(id).collection('expenses').get();
+
+        console.log("ourDS");
+        console.log(ourIDS.docs);
+
+
+        let l = [];
+
+        for(let i=0;i<ourIDS.docs.length;i++) {
+            // console.log(deleteID.id);
+            // console.log(ourID);
+            // const docref = await db.collection('users').doc(id).collection('expenses').doc(ourID.id);
+            // const docSnap = await docref.get();
+
+            const tmpcost = ourIDS.docs[i].data().cost;
+            const tmpname = ourIDS.docs[i].data().name;
+
+            console.log("bro load plssss");
+            console.log(tmpcost);
+            console.log(tmpname);
+
+            setExample((example) => [...example, tmpname]);
+            setPrices((prices)=>[...prices, tmpcost]);
+            console.log(i)
+
+            l.push([tmpname, tmpcost]);
         }
+
+        setCombined(l);
 
     }
 
     useEffect(() => {
         db.collection('users').where('username', '==', username).onSnapshot(snapshot => {
             update();
+            setCombined(combined);
             console.log("received change, calling function");
           
           });
@@ -110,9 +171,7 @@ function Tracking() {
     
 
 
-    const [example, setExample] = useState(["Item1", "Item2", "Item3", "4", "5", "6", "7", "8", "9", "10"]);
 
-    const [prices, setPrices] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 
     const [isPopupOpen, setPopupOpen] = useState(false); //applies to add item
@@ -153,9 +212,14 @@ function Tracking() {
 
 
             {/* {(!isPopupOpen && !isPopupOpen1) && ( */}
-            <ul>
-                {example.map((exs) => <ListElement name = {exs} price={5}/>)}
-            </ul>
+           { prices && <ul>
+                {/* {console.log("prices here!!!!:")}
+                {console.log(prices)}
+                {console.log(example)} */}
+                
+                {console.log(combined)}
+                {combined.map((exs) => <ListElement name = {exs[0]} price={exs[1]}/>)}
+            </ul>}
 
 
 

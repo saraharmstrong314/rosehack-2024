@@ -32,6 +32,7 @@ const Signup = () => {
         gender: gender,
         age: parseInt(age),
         budget: budget,
+        totalExpense: 0,
       });
       
       console.log('Data stored in Firebase!');
