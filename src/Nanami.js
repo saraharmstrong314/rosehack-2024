@@ -4,6 +4,7 @@ import constants from './Key.json';
 import './Nanami.css';
 import { useParams } from 'react-router-dom';
 import db from './firebase';
+import { computeHeadingLevel } from '@testing-library/react';
 
 const openai = new OpenAI({ apiKey: constants.apiKey, dangerouslyAllowBrowser: true });
 
@@ -21,6 +22,7 @@ const Nanami = () => {
     
           if (!userQuerySnapshot.empty) {
             const userData = userQuerySnapshot.docs[0].data();
+            console.log(userData);
             setUserData(userData);
           } else {
             console.log('User not found');
@@ -42,7 +44,7 @@ const Nanami = () => {
           {
             role: 'system',
             content:
-              'Your name is Gojo. Address the person with their name. Please help the user managing his budget. He has a budget of '+userdata.budget +' dollars for this month, has done total expenses of '+ userdata.expenses+ ' dollars already. My age is '+ userdata.age+ ', location is '+ userdata.location+ ', and my name is ' + userdata.username+ '. Please advise him on how he should spend his money and what to buy based on age, location, budget and expenses.',
+              'Your name is Gojo. Address the person with their name. Please help the user managing his budget. He has a budget of '+userdata.budget +' dollars for this month, has done total expenses of '+ userdata.totalExpense+ ' dollars already. My age is '+ userdata.age+ ', location is '+ userdata.location+ ', and my name is ' + userdata.username+ '. Please advise him on how he should spend his money and what to buy based on age, location, budget and expenses.',
           },
           { role: 'user', content: budget },
         ],
