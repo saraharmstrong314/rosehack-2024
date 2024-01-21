@@ -50,7 +50,7 @@ for series in json_data['Results']['series']:
     file_number += 1
 
     # convert json to dataframe
-    # header = json_data[0]
-    # data = json_data[1:]
+    # header = json_data_[0]
+    # data = json_data_[1:]
     # df = pd.DataFrame(data, columns=header)
     # print(df)
