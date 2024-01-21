@@ -8,6 +8,7 @@ const Trends = () => {
     const {username} = useParams(); 
     const exp = "/nanami/"+username;
     const chat = "/nanami/"+username;
+    const coup = "/coupons/"+username;
     // const history = useNavigate();
   return (
     <div>
@@ -20,7 +21,7 @@ const Trends = () => {
             <Link to={exp}>Chat Assistant</Link>
           </li>
           <li>
-            <Link to="/coupons">Coupons</Link>
+            <Link to={coup}>Coupons</Link>
           </li>
         </ul>
       </nav>

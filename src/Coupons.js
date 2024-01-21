@@ -1,9 +1,26 @@
 
 import React from 'react';
 import "./Coupons.css";
+import { Link, useParams } from 'react-router-dom';
 function Coupons(){
+  const {username} = useParams(); 
+  const exp = "/nanami/"+username;
+    const chat = "/nanami/"+username;
   return (
     <div className='container'>
+      <nav>
+        <ul>
+          <li>
+            <Link to={chat}>Expenses Tracking</Link>
+          </li>
+          <li>
+            <Link to={exp}>Chat Assistant</Link>
+          </li>
+          <li>
+            <Link to="/coupons">Coupons</Link>
+          </li>
+        </ul>
+      </nav>
       <h1>Coupons available</h1>
       <p className='para'>Coupons For You!</p>  
       
