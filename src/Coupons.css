@@ -1,18 +1,14 @@
-* Coupons.css
 .Coupons a {
+  
   display: block;
   margin-top: 10px;
   text-decoration: none;
-  color: #007BFF;
+  color: #f7e3e5;
   font-weight: bold;
 }
 
 .Coupons a:hover {
-  text-decoration: underline;
-}
- */
-
-
+  text-decoration: underline;}
 
 .container {
   display: flex;
@@ -21,10 +17,11 @@
   align-items: center;
   text-align: center;
   margin-top: 20px;
+  background-color: #f3fcf3;
 }
 
 h1 {
-  color: #333;
+  color: #a2c69f;
   width: 100%;
 }
 
@@ -36,24 +33,36 @@ h1 {
 
 .coupon {
   display: flex;
-  flex-direction: column; /* Change flex direction to column */
+  flex-direction: column;
   align-items: center;
   text-align: center;
   margin: 10px;
 }
 
-a {
+a:link,a:visited {
   text-decoration: none;
-  color: #007BFF;
+  color: #5f755e;
+  background-color: #dcf5da;
+  padding: 15px 25px;
+  text-align: center;
+  display: inline-block;
+}
+a:hover, a:active {
+  background-color: #b0c9af;
 }
 
 img {
   max-width: 500px;
-  height: 200px; /* Initially hide the images */
+  height: 200px;
 }
-p{
-  color: #fff;
+
+p {
+  color: #a2c69f;
 }
+#honey {
+  color:#a8aac2;
+}
+
 
 /* Adjustments for responsive design */
 @media (max-width: 600px) {
@@ -61,3 +70,7 @@ p{
     width: 100%;
   }
 }
+
+
+
+
