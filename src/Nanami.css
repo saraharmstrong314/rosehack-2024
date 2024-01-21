@@ -1,0 +1,48 @@
+/* Nanami.css */
+
+.container {
+    text-align: center;
+    margin: 50px;
+  }
+  
+  .chatbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  input {
+    padding: 8px;
+    margin-top: 5px;
+    width: 70%;
+    max-width: 100%;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .response-box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+  }
+  
+  .response-box p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  

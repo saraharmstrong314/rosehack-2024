@@ -30,7 +30,7 @@ const Login = () => {
         console.error('Error checking login:', error);
         setLoginMessage('An error occurred during login.');
       });
-      history('/coupon');
+      history('/nanami/'+username);
   };
 
   return (
