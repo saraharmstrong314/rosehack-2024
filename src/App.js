@@ -3,14 +3,16 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './Login';
 import Signup from './Signup';
 import Tracking from './Tracking';
+import Coupons from './Coupons';
+import Nanami from './Nanami';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/signup" element={<Signup/>} />
-        <Route path="/" element={<Login/>} />
-        <Route path="/Tracking" element={<Tracking/>} />
+        <Route path="/signup" element={<Signup/>} />
+        <Route exact path="/" element={<Login/>} />
+        <Route path="/nanami/:username" element={<Nanami/>} />
       </Routes>
     </Router>
   );

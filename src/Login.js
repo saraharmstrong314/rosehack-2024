@@ -6,7 +6,7 @@ import './Login.css';
 
 const Login = () => {
   const [loginMessage, setLoginMessage] = useState(''); 
-//   const history = useNavigate();
+   const history = useNavigate();
 
   const handleLogin = (e) => { 
     e.preventDefault();
@@ -30,6 +30,7 @@ const Login = () => {
         console.error('Error checking login:', error);
         setLoginMessage('An error occurred during login.');
       });
+      history('/nanami/'+username);
   };
 
   return (
