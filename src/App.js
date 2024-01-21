@@ -13,6 +13,7 @@ function App() {
         <Route path="/signup" element={<Signup/>} />
         <Route exact path="/" element={<Login/>} />
         <Route path="/nanami/:username" element={<Nanami/>} />
+        <Route path="/Tracking" element={<Tracking />}/>
       </Routes>
     </Router>
   );
