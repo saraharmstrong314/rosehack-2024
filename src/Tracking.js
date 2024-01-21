@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import db from './firebase';
 import './Tracking.css';
 import { doc, onSnapshot, collection, query, where, addDoc} from "firebase/firestore";
@@ -16,6 +16,8 @@ function ListElement({name, price}) {
     </li>
   )
 }
+
+
 
 
 function Tracking() {
@@ -61,8 +63,6 @@ function Tracking() {
 
         const deletionIDS = await (await db.collection('users').doc(id).collection('expenses').where('name', '==', item).get()).docs;
 
-
-
         console.log("we here at removeItems");
         //console.log(deletionIDS.docs[0].id); //this be each of the ids
         console.log(deletionIDS);
@@ -84,7 +84,35 @@ function Tracking() {
     }
 
 
-    const example = ["Item1", "Item2", "Item3", "4", "5", "6", "7", "8", "9", "10"];
+    
+
+    const update = async () => {
+        const d = await db.collection('users').where('username', '==', username).get();
+        const id = d.docs[0].id;  
+
+        const ourIDS = await (await db.collection('users').doc(id).collection('expenses').where('name', '==', item).get()).docs;
+
+        for (const ourID of ourIDS) {
+            // console.log(deleteID.id);
+            await db.collection('users').doc(id).collection('expenses').doc(ourID.id);
+        
+        }
+
+    }
+
+    useEffect(() => {
+        db.collection('users').where('username', '==', username).onSnapshot(snapshot => {
+            update();
+            console.log("received change, calling function");
+          
+          });
+    }, []);
+    
+
+
+    const [example, setExample] = useState(["Item1", "Item2", "Item3", "4", "5", "6", "7", "8", "9", "10"]);
+
+    const [prices, setPrices] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 
     const [isPopupOpen, setPopupOpen] = useState(false); //applies to add item
