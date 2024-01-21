@@ -21,6 +21,7 @@ const Login = () => {
         if (!querySnapshot.empty) {
           setLoginMessage('Login successful!');
           console.log(username)
+          history('/trends/'+username);
         //   history('/main', {username: username});
         } else {
           setLoginMessage('Username or password is incorrect.');
@@ -30,7 +31,6 @@ const Login = () => {
         console.error('Error checking login:', error);
         setLoginMessage('An error occurred during login.');
       });
-      history('/trends/'+username);
   };
 
   return (
