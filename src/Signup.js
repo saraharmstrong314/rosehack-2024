@@ -22,7 +22,7 @@ const Signup = () => {
     const gender = e.target.gender.value;
     const age = e.target.age.value;
     const location =e.target.location.value;
-    const budget =  e.target.location.value;
+    const budget =  e.target.budget.value;
     console.log(password)
 
       db.collection('users').add({
@@ -35,6 +35,7 @@ const Signup = () => {
       });
       
       console.log('Data stored in Firebase!');
+      alert('UserName Created Successfully');
   };
 
   return (

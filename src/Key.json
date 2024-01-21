@@ -1,0 +1,5 @@
+{
+    "apiKey": "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",
+    "systemContent": "Great Britain VAT declaration's  category is GB_VAT_DCL,  and entity is ZZGB_DRCC, the default company code is 1100. There can be multiple actions like create, execute, run, email download, and compare. If no date is provided in the command by the end user then the reporting date key should be populated with today's date value in YYYY-MM-DD format. If the user asks to include or exclude document then the app is MTI, otherwise the app is DRC. The following run id are generated [00000001, 00000002]. In the above context return to me a JSON response for the following command as a string with no new line characters. { category\":\"\",\"entity\":\"\",\"companycode\":\"\",\"action\":\"\",\"reportingdate\":\"\", \"runid\": \"\", \"app\":\"\", \"document\":\"\" }",
+    "chatPlaceholder": "I can run any report for ACR..."
+}
