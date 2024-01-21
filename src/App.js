@@ -7,13 +7,14 @@ import Nanami from './Nanami';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/signup" element={<Signup/>} />
-        <Route exact path="/" element={<Login/>} />
-        <Route path="/nanami/:username" element={<Nanami/>} />
-      </Routes>
-    </Router>
+    <Coupons></Coupons>
+    // <Router>
+    //   <Routes>
+    //     <Route path="/signup" element={<Signup/>} />
+    //     <Route exact path="/" element={<Login/>} />
+    //     <Route path="/nanami/:username" element={<Nanami/>} />
+    //   </Routes>
+    // </Router>
   );
 }
 
