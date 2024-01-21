@@ -16,9 +16,12 @@ function ListElement({name, price}) {
 
 
 
+
 function Tracking() {
     const {username} = useParams(); 
     const [invalidCost, setCostState] = useState(false);
+
+
 
     const addItems = async() => { 
         //go into root -> users -> file
@@ -35,11 +38,11 @@ function Tracking() {
             cost:cost,
         })
 
-        const docref1 = await db.collection('users').doc(id);
-        const docSnap = await docref1.get();
-        const oldTotExpense = docSnap.get('totalExpenses');
+        // const docref1 = await db.collection('users').doc(id);
+        // const docSnap = await docref1.get();
+        // const oldTotExpense = docSnap.get('totalExpenses');
 
-        docref1.update({totalExpense : oldTotExpense + cost});
+        // docref1.update({totalExpense : oldTotExpense + cost});
         
         console.log("we here???");
         setPopupOpen(!isPopupOpen);
@@ -105,6 +108,8 @@ function Tracking() {
         }
 
         setCombined(tmp1);
+
+        update();
     }
 
 
@@ -112,6 +117,8 @@ function Tracking() {
     const [prices, setPrices] = useState([]);
 
     const [combined, setCombined] = useState([]);
+
+    const [totcost1, settotcost] = useState(0);
 
     const update = async () => {
         setCombined([]);
@@ -131,7 +138,7 @@ function Tracking() {
 
 
         let l = [];
-
+        let totcost = 0;
         for(let i=0;i<ourIDS.docs.length;i++) {
             // console.log(deleteID.id);
             // console.log(ourID);
@@ -150,9 +157,17 @@ function Tracking() {
             console.log(i)
 
             l.push([tmpname, tmpcost]);
+            totcost += Number(tmpcost);
         }
 
         setCombined(l);
+
+
+
+        const docref1 = await db.collection('users').doc(id);
+        const docSnap1 = await docref1.get();
+        docref1.update({totalExpense : totcost});
+        settotcost(totcost);
 
     }
 
@@ -205,6 +220,8 @@ function Tracking() {
 
             {/* {(!isPopupOpen && !isPopupOpen1) && ( */}
             <h3> List of Things </h3>
+            <h2 style={{ textAlign: 'center'}}> Total Expenses: {totcost1} </h2>
+
 
 
             {/* {(!isPopupOpen && !isPopupOpen1) && ( */}
