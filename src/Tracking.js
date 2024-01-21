@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import db from './firebase';
 import './Tracking.css';
+import { useParams } from 'react-router-dom';
 import { doc, onSnapshot, collection, query, where, addDoc} from "firebase/firestore";
-
-
-
-const username = 'Jasmine';
 function ListElement({name, price}) {
-
 
   return (
     <li>
@@ -21,7 +17,7 @@ function ListElement({name, price}) {
 
 
 function Tracking() {
-
+    const {username} = useParams(); 
     const [invalidCost, setCostState] = useState(false);
 
     const addItems = async() => { 

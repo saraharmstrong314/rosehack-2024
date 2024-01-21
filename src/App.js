@@ -14,7 +14,7 @@ function App() {
         <Route path="/signup" element={<Signup/>} />
         <Route exact path="/" element={<Login/>} />
         <Route path="/nanami/:username" element={<Nanami/>} />
-        <Route path="/Tracking" element={<Tracking />}/>
+        <Route path="/Tracking/:username" element={<Tracking />}/>
         <Route path="/trends/:username" element={<Trends/>} />
         <Route path="/coupons/:username" element={<Coupons/>} />
       </Routes>

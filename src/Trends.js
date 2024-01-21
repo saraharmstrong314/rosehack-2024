@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 const Trends = () => {
     const {username} = useParams(); 
-    const exp = "/nanami/"+username;
+    const exp = "/Tracking/"+username;
     const chat = "/nanami/"+username;
     const coup = "/coupons/"+username;
     // const history = useNavigate();
@@ -15,10 +15,10 @@ const Trends = () => {
       <nav>
         <ul>
           <li>
-            <Link to={chat}>Expenses Tracking</Link>
+            <Link to={exp}>Expenses Tracking</Link>
           </li>
           <li>
-            <Link to={exp}>Chat Assistant</Link>
+            <Link to={chat}>Chat Assistant</Link>
           </li>
           <li>
             <Link to={coup}>Coupons</Link>
