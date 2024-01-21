@@ -1,22 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import GraphSection from './GraphSection'; // You'll need to create this component
+import GraphSection from './GraphSection'; 
 import './Trends.css'
+import { useParams } from 'react-router-dom';
 
 const Trends = () => {
+    const {username} = useParams(); 
+    const exp = "/nanami/"+username;
+    const chat = "/nanami/"+username;
+    // const history = useNavigate();
   return (
     <div>
-        <h1>Sarah: your prefect financial advisor</h1>
       <nav>
         <ul>
           <li>
-            <Link to="/nanami/Jasmine">Expenses Tracking</Link>
+            <Link to={chat}>Expenses Tracking</Link>
           </li>
           <li>
-            <Link to="/nanami/Jasmine">Chat Assistant</Link>
+            <Link to={exp}>Chat Assistant</Link>
           </li>
           <li>
-            <Link to="/nanami/Jasmine">Coupons</Link>
+            <Link to="/coupons">Coupons</Link>
           </li>
         </ul>
       </nav>
